@@ -2,11 +2,16 @@
 name: 'Validate PR title'
 
 on:
-  pull_request_target:
+  pull_request:
     types:
-      - opened
       - edited
+      - opened
+      - reopened
       - synchronize
+
+permissions:
+  pull-requests: read
+  statuses: write
 
 jobs:
   main:
@@ -17,7 +22,7 @@ jobs:
       # https://github.com/amannn/action-semantic-pull-request/releases
       - uses: amannn/action-semantic-pull-request@v5.5.3
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         with:
           # Configure which types are allowed.
           # Default: https://github.com/commitizen/conventional-commit-types
@@ -45,7 +50,7 @@ jobs:
           # special "[WIP]" prefix to indicate this state. This will avoid the
           # validation of the PR title and the pull request checks remain pending.
           # Note that a second check will be reported if this is enabled.
-          wip: true
+          wip: false
           # When using "Squash and merge" on a PR with only one commit, GitHub
           # will suggest using that commit message instead of the PR title for the
           # merge commit, and it's easy to commit this by mistake. Enable this option
