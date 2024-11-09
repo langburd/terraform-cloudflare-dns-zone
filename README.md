@@ -1,0 +1,68 @@
+# Terraform Cloudflare DNS Zone Module
+
+This Terraform module manages Cloudflare DNS zones and records.
+It provides functionality to both create new DNS zones and manage records within existing zones using one YAML file.
+
+## Features
+
+- Create new Cloudflare DNS zones
+- Manage existing Cloudflare DNS zones
+- Create and manage DNS records of various types
+- Supports multiple DNS records across different zones
+
+<!-- BEGIN_TF_DOCS -->
+## Requirements
+
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0.0 |
+| <a name="requirement_cloudflare"></a> [cloudflare](#requirement\_cloudflare) | >= 4.0, <= 5.0 |
+
+## Providers
+
+| Name | Version |
+|------|---------|
+| <a name="provider_cloudflare"></a> [cloudflare](#provider\_cloudflare) | 4.45.0 |
+
+## Modules
+
+No modules.
+
+## Resources
+
+| Name | Type |
+|------|------|
+| [cloudflare_record.dns_records](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/record) | resource |
+| [cloudflare_zone.created_zones](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/zone) | resource |
+| [cloudflare_accounts.current](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/data-sources/accounts) | data source |
+| [cloudflare_zone.existing_zones](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/data-sources/zone) | data source |
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_zones_file"></a> [zones\_file](#input\_zones\_file) | Path to the YAML file containing DNS zones and records. | `string` | `"zones.yaml"` | no |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| <a name="output_created_zones"></a> [created\_zones](#output\_created\_zones) | Cloudflare DNS zones. |
+| <a name="output_dns_records"></a> [dns\_records](#output\_dns\_records) | Cloudflare DNS records. |
+| <a name="output_existing_zones"></a> [existing\_zones](#output\_existing\_zones) | Cloudflare DNS zones. |
+<!-- END_TF_DOCS -->
+
+## Notes
+
+- The module automatically handles TXT record content formatting by adding required quotes
+- Zone IDs are automatically looked up and managed internally
+- Record names are automatically formatted to ensure uniqueness
+
+## Contributing
+
+Contributions are welcome! This project uses pre-commit hooks to ensure code quality. Please make sure to install and run pre-commit before submitting any changes.
+
+## License
+
+MIT License
+Copyright (c) 2024 Avi Langburd
