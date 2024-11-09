@@ -1,0 +1,32 @@
+---
+# zones.yaml
+dns_zones:
+  - name: some-example-domain.com
+    create: true
+    default_ttl: 3600
+    records:
+      A:
+        - name: '@'
+          content: 127.0.0.1
+        - name: ftp
+          content: 1.2.3.4
+          ttl: 600
+      CNAME:
+        - name: www
+          content: some-example-domain.com
+          proxied: true
+          ttl: 1
+        - name: mail
+          content: ghs.googlehosted.com
+      MX:
+        - name: '@'
+          content: aspmx.l.google.com
+          priority: 10
+        - name: '@'
+          content: alt1.aspmx.l.google.com
+          priority: 20
+      TXT:
+        - name: '@'
+          content: v=spf1 include:_spf.google.com ~all
+        - name: '@'
+          content: MS=ms18454532
