@@ -6,7 +6,6 @@
     ":enablePreCommit",
     ":semanticCommits",
     "config:recommended",
-    "helpers:pinDockerDigests",
     "helpers:pinGitHubActionDigests"
   ],
   "packageRules": [
