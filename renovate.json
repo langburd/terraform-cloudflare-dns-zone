@@ -1,5 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "automerge": true,
   "extends": [
     ":dependencyDashboard",
     ":disableRateLimiting",
@@ -22,5 +23,6 @@
   "pre-commit": {
     "enabled": true
   },
+  "separateMinorPatch": true,
   "timezone": "Asia/Jerusalem"
 }
