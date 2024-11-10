@@ -1,7 +1,13 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:recommended"
+    ":dependencyDashboard",
+    ":disableRateLimiting",
+    ":enablePreCommit",
+    ":semanticCommits",
+    "config:recommended",
+    "helpers:pinDockerDigests",
+    "helpers:pinGitHubActionDigests"
   ],
   "packageRules": [
     {
