@@ -2,6 +2,7 @@
 
 This Terraform module manages Cloudflare DNS zones and records.
 It provides functionality to both create new DNS zones and manage records within existing zones using one YAML file.
+The module is published in both [Terraform](https://registry.terraform.io/modules/langburd/dns-zone/cloudflare) and [OpenTofu](https://search.opentofu.org/module/langburd/dns-zone/cloudflare) registries.
 
 ## Features
 
@@ -9,6 +10,45 @@ It provides functionality to both create new DNS zones and manage records within
 - Manage existing Cloudflare DNS zones
 - Create and manage DNS records of various types
 - Supports multiple DNS records across different zones
+
+## Usage
+
+```terraform
+module "cloudflare_dns" {
+  source  = "langburd/dns-zone/cloudflare"
+  version = "~> 1.0"
+
+  # Path to your YAML configuration file
+  zones_file = "./zones.yaml"
+}
+```
+
+Example of `zones.yaml` (filename could be arbitrary):
+
+```yaml
+zones:
+  - name: example.com
+    create: true
+    default_ttl: 3600
+    records:
+      - name: www
+        type: A
+        content: 192.0.2.1
+        ttl: 600
+        proxied: true
+      - name: mail
+        type: MX
+        content: mail.example.com
+        priority: 10
+  - name: existing-domain.com
+    create: false
+    records:
+      - name: api
+        type: CNAME
+        content: api.example.com
+        ttl: 1800
+        proxied: true
+```
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
