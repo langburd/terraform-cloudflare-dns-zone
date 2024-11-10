@@ -1,4 +1,4 @@
-# Terraform Cloudflare DNS Zones
+# Terraform Cloudflare DNS Zones module example
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
