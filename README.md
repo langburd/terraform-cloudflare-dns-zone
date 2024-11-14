@@ -26,28 +26,37 @@ module "cloudflare_dns" {
 Example of `zones.yaml` (filename could be arbitrary):
 
 ```yaml
-zones:
+---
+# zones.yaml
+dns_zones:
   - name: example.com
     create: true
     default_ttl: 3600
     records:
-      - name: www
-        type: A
-        content: 192.0.2.1
-        ttl: 600
-        proxied: true
-      - name: mail
-        type: MX
-        content: mail.example.com
-        priority: 10
+      A:
+        - name: www
+          content: 1.2.3.4
+          ttl: 600
+          proxied: true
+        - name: api
+          content: 5.6.7.8
+          ttl: 1800
+          proxied: true  
+      MX:
+        - name: '@'
+          content: mail.example.com
+          priority: 10
   - name: existing-domain.com
     create: false
     records:
-      - name: api
-        type: CNAME
-        content: api.example.com
-        ttl: 1800
-        proxied: true
+      CNAME:
+        - name: api
+          content: api.example.com
+          ttl: 1800
+          proxied: true
+      TXT:
+        - name: '@'
+          content: v=spf1 include:_spf.google.com ~all
 ```
 
 <!-- BEGIN_TF_DOCS -->
