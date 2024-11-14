@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.1](https://github.com/langburd/terraform-cloudflare-dns-zone/compare/v1.1.0...v1.1.1) (2024-11-14)
+
+
+### Bug Fixes
+
+* Remove default for 'zones_file' variable ([b9bc7ba](https://github.com/langburd/terraform-cloudflare-dns-zone/commit/b9bc7ba6b93e17430b9263e4fa3681c4a0008bb1))
+
 ## [1.1.0](https://github.com/langburd/terraform-cloudflare-dns-zone/compare/v1.0.2...v1.1.0) (2024-11-14)
 
 
