@@ -90,7 +90,7 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_zones_file"></a> [zones\_file](#input\_zones\_file) | Path to the YAML file containing DNS zones and records. | `string` | `"zones.yaml"` | no |
+| <a name="input_zones_file"></a> [zones\_file](#input\_zones\_file) | Path to the YAML file containing DNS zones and records. | `string` | n/a | yes |
 
 ## Outputs
 
