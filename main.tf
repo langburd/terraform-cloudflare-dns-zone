@@ -47,7 +47,7 @@ resource "cloudflare_record" "dns_records" {
     for record in local.records : "${substr(lower(record.zone), 0, 20)}_${substr(lower(record.record_type), 0, 5)}_${substr(lower(record.name), 0, 20)}_${substr(md5(record.content), 0, 19)}" => record
   }
 
-  content  = lower(each.value.record_type == "TXT" ? "\"${each.value.content}\"" : each.value.content)
+  content  = each.value.record_type == "TXT" ? "\"${each.value.content}\"" : lower(each.value.content)
   name     = lower(each.value.name)
   priority = each.value.priority
   ttl      = each.value.ttl
