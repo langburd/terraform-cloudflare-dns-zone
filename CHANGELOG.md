@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.2](https://github.com/langburd/terraform-cloudflare-dns-zone/compare/v1.1.1...v1.1.2) (2024-11-17)
+
+
+### Bug Fixes
+
+* Update scope for lowercase function ([b2b111a](https://github.com/langburd/terraform-cloudflare-dns-zone/commit/b2b111a499149fa2ac0896fdbda9c1a40793008a))
+
 ## [1.1.1](https://github.com/langburd/terraform-cloudflare-dns-zone/compare/v1.1.0...v1.1.1) (2024-11-14)
 
 ### Bug Fixes
