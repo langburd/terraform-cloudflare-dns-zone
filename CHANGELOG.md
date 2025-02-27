@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.3](https://github.com/langburd/terraform-cloudflare-dns-zone/compare/v1.1.2...v1.1.3) (2025-02-27)
+
+
+### Bug Fixes
+
+* Change Cloudflare provider version constraint ([0a1355b](https://github.com/langburd/terraform-cloudflare-dns-zone/commit/0a1355baf14da4a37c28adb30074c9eb12a08f6c))
+
 ## [1.1.2](https://github.com/langburd/terraform-cloudflare-dns-zone/compare/v1.1.1...v1.1.2) (2024-11-17)
 
 
