@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.0](https://github.com/langburd/terraform-cloudflare-dns-zone/compare/v1.1.3...v1.2.0) (2025-03-25)
+
+
+### Features
+
+* Add comment to DNS record ([d356c17](https://github.com/langburd/terraform-cloudflare-dns-zone/commit/d356c17beeca70044347018eaf6d6ef4b5ed26a5))
+
 ## [1.1.3](https://github.com/langburd/terraform-cloudflare-dns-zone/compare/v1.1.2...v1.1.3) (2025-02-27)
 
 
