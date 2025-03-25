@@ -5,6 +5,7 @@ locals {
     for zone in local.zones : [
       for record_type, records_of_type in zone.records : [
         for rec in records_of_type : {
+          comment     = lookup(rec, "comment", null)
           content     = rec.content
           create_zone = lookup(zone, "create", false)
           name        = rec.name
@@ -47,6 +48,7 @@ resource "cloudflare_record" "dns_records" {
     for record in local.records : "${substr(lower(record.zone), 0, 20)}_${substr(lower(record.record_type), 0, 5)}_${substr(lower(record.name), 0, 20)}_${substr(md5(record.content), 0, 19)}" => record
   }
 
+  comment  = each.value.comment
   content  = each.value.record_type == "TXT" ? "\"${each.value.content}\"" : lower(each.value.content)
   name     = lower(each.value.name)
   priority = each.value.priority
