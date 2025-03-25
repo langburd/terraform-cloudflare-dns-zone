@@ -9,6 +9,7 @@ dns_zones:
         - name: '@'
           content: 5.6.7.8
         - name: ftp
+          comment: 'FTP server'
           content: 1.2.3.4
           ttl: 600
       CNAME:
@@ -27,6 +28,8 @@ dns_zones:
           priority: 20
       TXT:
         - name: '@'
+          comment: 'Google site verification'
           content: v=spf1 include:_spf.google.com ~all
         - name: '@'
+          comment: 'Azure domain verification'
           content: MS=ms18454532
