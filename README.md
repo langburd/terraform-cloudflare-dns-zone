@@ -29,34 +29,38 @@ Example of `zones.yaml` (filename could be arbitrary):
 ---
 # zones.yaml
 dns_zones:
-  - name: example.com
+  - name: some-example-domain.com
     create: true
     default_ttl: 3600
     records:
       A:
-        - name: www
+        - name: '@'
+          content: 5.6.7.8
+        - name: ftp
+          comment: 'FTP server'
           content: 1.2.3.4
           ttl: 600
+      CNAME:
+        - name: www
+          content: some-example-domain.com
           proxied: true
-        - name: api
-          content: 5.6.7.8
-          ttl: 1800
-          proxied: true  
+          ttl: 1
+        - name: mail
+          content: ghs.googlehosted.com
       MX:
         - name: '@'
-          content: mail.example.com
+          content: aspmx.l.google.com
           priority: 10
-  - name: existing-domain.com
-    create: false
-    records:
-      CNAME:
-        - name: api
-          content: api.example.com
-          ttl: 1800
-          proxied: true
+        - name: '@'
+          content: alt1.aspmx.l.google.com
+          priority: 20
       TXT:
         - name: '@'
+          comment: 'Google site verification'
           content: v=spf1 include:_spf.google.com ~all
+        - name: '@'
+          comment: 'Azure domain verification'
+          content: MS=ms18454532
 ```
 
 <!-- BEGIN_TF_DOCS -->
@@ -150,4 +154,4 @@ All other trademarks referenced herein are the property of their respective owne
 
 ## Copyrights
 
-Copyright © 2024 [Avi Langburd](https://github.com/langburd)
+Copyright © 2024-2025 [Avi Langburd](https://github.com/langburd)
