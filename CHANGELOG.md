@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.1](https://github.com/langburd/terraform-cloudflare-dns-zone/compare/v1.2.0...v1.2.1) (2025-08-11)
+
+
+### Bug Fixes
+
+* Change pre-commit hook url ([8c776bb](https://github.com/langburd/terraform-cloudflare-dns-zone/commit/8c776bbb7a36eb42d22aae4999ced7a0ff90a981))
+
 ## [1.2.0](https://github.com/langburd/terraform-cloudflare-dns-zone/compare/v1.1.3...v1.2.0) (2025-03-25)
 
 
