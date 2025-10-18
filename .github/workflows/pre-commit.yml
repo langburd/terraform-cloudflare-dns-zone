@@ -23,7 +23,7 @@ jobs:
 
       - name: Get root directories
         id: dirs
-        uses: clowdhaus/terraform-composite-actions/directories@26118b78561fb44052ce9ab6c5ab850df70b9aa0 # v1.13.0
+        uses: clowdhaus/terraform-composite-actions/directories@462243b714d762cbcac6732098e9fdb4ab236cb7 # v1.14.0
 
   preCommitMinVersions:
     name: Min TF pre-commit
@@ -53,7 +53,7 @@ jobs:
       - name: Pre-commit Terraform ${{ steps.minMax.outputs.minVersion }}
         # Run only validate pre-commit check on min version supported
         if: ${{ matrix.directory !=  '.' }}
-        uses: clowdhaus/terraform-composite-actions/pre-commit@26118b78561fb44052ce9ab6c5ab850df70b9aa0 # v1.13.0
+        uses: clowdhaus/terraform-composite-actions/pre-commit@462243b714d762cbcac6732098e9fdb4ab236cb7 # v1.14.0
         with:
           terraform-version: ${{ steps.minMax.outputs.minVersion }}
           tflint-version: ${{ env.TFLINT_VERSION }}
@@ -62,7 +62,7 @@ jobs:
       - name: Pre-commit Terraform ${{ steps.minMax.outputs.minVersion }}
         # Run only validate pre-commit check on min version supported
         if: ${{ matrix.directory ==  '.' }}
-        uses: clowdhaus/terraform-composite-actions/pre-commit@26118b78561fb44052ce9ab6c5ab850df70b9aa0 # v1.13.0
+        uses: clowdhaus/terraform-composite-actions/pre-commit@462243b714d762cbcac6732098e9fdb4ab236cb7 # v1.14.0
         with:
           terraform-version: ${{ steps.minMax.outputs.minVersion }}
           tflint-version: ${{ env.TFLINT_VERSION }}
@@ -92,7 +92,7 @@ jobs:
         uses: clowdhaus/terraform-min-max@a86951cbe89f4d15caec805f36aa1dd68863ae32 # v2.1.0
 
       - name: Pre-commit Terraform ${{ steps.minMax.outputs.maxVersion }}
-        uses: clowdhaus/terraform-composite-actions/pre-commit@26118b78561fb44052ce9ab6c5ab850df70b9aa0 # v1.13.0
+        uses: clowdhaus/terraform-composite-actions/pre-commit@462243b714d762cbcac6732098e9fdb4ab236cb7 # v1.14.0
         with:
           terraform-version: ${{ steps.minMax.outputs.maxVersion }}
           tflint-version: ${{ env.TFLINT_VERSION }}
