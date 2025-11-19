@@ -32,7 +32,7 @@ repos:
         args: [--mapping, "2", --sequence, "4", --offset, "2", "--preserve-quotes"]
 
   - repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: v0.45.0
+    rev: v0.46.0
     hooks:
       - id: markdownlint-fix
         args: ["--disable", "MD033"]
