@@ -46,7 +46,7 @@ jobs:
 
       - name: Terraform min/max versions
         id: minMax
-        uses: clowdhaus/terraform-min-max@a86951cbe89f4d15caec805f36aa1dd68863ae32 # v2.1.0
+        uses: clowdhaus/terraform-min-max@5e40f8cf535d84fbd031571abd363ffd81dbfbfc # v3.0.1
         with:
           directory: ${{ matrix.directory }}
 
@@ -89,7 +89,7 @@ jobs:
 
       - name: Terraform min/max versions
         id: minMax
-        uses: clowdhaus/terraform-min-max@a86951cbe89f4d15caec805f36aa1dd68863ae32 # v2.1.0
+        uses: clowdhaus/terraform-min-max@5e40f8cf535d84fbd031571abd363ffd81dbfbfc # v3.0.1
 
       - name: Pre-commit Terraform ${{ steps.minMax.outputs.maxVersion }}
         uses: clowdhaus/terraform-composite-actions/pre-commit@462243b714d762cbcac6732098e9fdb4ab236cb7 # v1.14.0
