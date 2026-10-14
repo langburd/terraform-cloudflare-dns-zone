@@ -30,7 +30,7 @@ jobs:
           node-version: '24'
 
       - name: Release
-        uses: cycjimmy/semantic-release-action@2a8f1fb80c292f4b71a808d78655ee474fc6e725 # v8.0.2
+        uses: cycjimmy/semantic-release-action@9e1f8a3ef91f1097285028e799a5fb8bb90e8899 # v8.1.0
         with:
           semantic_version: 25.0.9
           extra_plugins: |
