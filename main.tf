@@ -10,6 +10,7 @@ locals {
           create_zone = lookup(zone, "create", false)
           name        = rec.name
           priority    = lookup(rec, "priority", null)
+          proxied     = lookup(rec, "proxied", null)
           record_type = record_type
           ttl         = lookup(rec, "ttl", lookup(zone, "default_ttl", null))
           zone        = zone.name
@@ -52,7 +53,8 @@ resource "cloudflare_record" "dns_records" {
   content  = each.value.record_type == "TXT" ? "\"${each.value.content}\"" : lower(each.value.content)
   name     = lower(each.value.name)
   priority = each.value.priority
-  ttl      = each.value.ttl
+  proxied  = each.value.proxied
+  ttl      = each.value.proxied == true ? 1 : each.value.ttl
   type     = each.value.record_type
   zone_id  = local.zone_ids[each.value.zone]
 }
